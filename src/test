@@ -1,0 +1,36 @@
+  const getTimelineURL = "https://api.tomorrow.io/v4/timelines";
+  const apikey = "zMoLGLWZ8qa2RCpIpd0gJEMfhqrBQJsa";
+  const location = [9.0765, 7.3986];
+  const fields = [
+    "precipitationIntensity",
+    "precipitationType",
+    "windSpeed",
+    "windGust",
+    "windDirection",
+    "temperature",
+    "temperatureApparent",
+    "cloudCover",
+    "cloudBase",
+    "cloudCeiling",
+    "weatherCode",
+  ];
+  const units = "imperial";
+  const timesteps = ["current", "1h", "1d"];
+  const now = moment.utc();
+  const startTime = moment.utc(now).add(0, "minutes").toISOString();
+  const endTime = moment.utc(now).add(1, "days").toISOString();
+  const timezone = "Africa/Lagos";
+  const queryString = require("query-string");
+  const getTimelineParameters = queryString.stringify(
+    {
+      apikey,
+      location,
+      fields,
+      units,
+      timesteps,
+      startTime,
+      endTime,
+      timezone,
+    },
+    { arrayFormat: "comma" }
+  );

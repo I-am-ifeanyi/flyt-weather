@@ -1,0 +1,19 @@
+{
+    "weather": [
+        {
+            "temperature": "6009876543234",
+            "pressure": "100",
+            "cloueCover": "56"
+        },
+        {
+            "temperature": "60",
+            "pressure": "100",
+            "cloueCover": "56"
+        },
+        {
+            "temperature": "60mnbvcsfgh",
+            "pressure": "100",
+            "cloueCover": "56swe"
+        }
+    ]
+}
