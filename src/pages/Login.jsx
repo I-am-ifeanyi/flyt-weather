@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { myContextApi } from "../StateManagement";
 
@@ -50,6 +50,10 @@ const Login = () => {
       };
     });
   };
+
+   useEffect(() => {
+     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+   }, []);
 
 
   return (

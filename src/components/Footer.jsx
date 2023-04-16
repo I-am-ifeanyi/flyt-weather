@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import compass from "../images/home--images/footer-icons/Compass_light.png";
 import home from "../images/home--images/footer-icons/Home_fill.png";
@@ -11,7 +12,7 @@ const Footer = () => {
       className=" bg-[#7F4CD2] p-2"
     >
       <div className="flex justify-around items-center ">
-        <img src={home} alt="" />
+        <Link to="/home"><img src={home} alt="" /></Link>
         <img src={search} alt="" />
         <img src={compass} alt="" />
         <img src={settings} alt="" />

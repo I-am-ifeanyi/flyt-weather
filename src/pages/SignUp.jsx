@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { myContextApi } from "../StateManagement";
 
@@ -43,8 +43,12 @@ const SignUp = () => {
     });
   };
 
+   useEffect(() => {
+     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+   }, []);
+
   return (
-    <div className="bg-[#622FB5] h-screen p-6 text-gray-200">
+    <div className="bg-[#622FB5] h-full p-6 text-gray-200">
       <h1
         className={`text-4xl font-bold ${
           isFormSubmitted ? "text-center" : "null"
@@ -76,7 +80,7 @@ const SignUp = () => {
               type="text"
               placeholder="Your first name & surname"
               required
-              className="p-3 w-full text-gray-800"
+              className="p-2 w-full text-gray-800 rounded-lg"
               value={name}
               name="name"
               onChange={formHandler}
@@ -93,7 +97,7 @@ const SignUp = () => {
               type="email"
               placeholder="Your Email"
               required
-              className="p-3 w-full text-gray-800"
+              className="p-2 w-full text-gray-800 rounded-lg"
               value={email}
               name="email"
               onChange={formHandler}
@@ -105,7 +109,7 @@ const SignUp = () => {
               type="password"
               placeholder="Password"
               required
-              className="p-3 w-full text-gray-800"
+              className="p-2 w-full text-gray-800 rounded-lg"
               value={password}
               name="password"
               onChange={formHandler}
