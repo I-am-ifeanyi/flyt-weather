@@ -39,10 +39,20 @@ const Home = () => {
     console.log(threeWeatherError);
   }
 
+  const style = {
+    backgroundImage: `url(wallpaper.png)`,
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+   
+  }
+
   return (
     <>
       <div className="bg-[#431098] h-screen text-gray-200 overflow-y-hidden">
-        <div className="w-full h-[300px] bg-[url(wallpaper.png)] rounded-b-3xl p-5 ">
+        <div
+          className="w-full h-[300px] bg-[url(wallpaper.png)] rounded-b-3xl p-5 "
+          style={style}
+        >
           <div className="flex justify-between items-center">
             <h1 className="text-xl font-semibold">Hi, {userName}</h1>
             <div className="w-2/3">
