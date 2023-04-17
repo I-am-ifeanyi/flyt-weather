@@ -41,7 +41,6 @@ const Login = () => {
     }, 3000);
   };
 
-
   const formHandler = (e) => {
     setLoginDetails(() => {
       return {
@@ -51,10 +50,9 @@ const Login = () => {
     });
   };
 
-   useEffect(() => {
-     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-   }, []);
-
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="bg-[#622FB5] h-full p-6 text-gray-200">
@@ -108,7 +106,9 @@ const Login = () => {
           </label>
         </fieldset>
         <div>
-          <p onClick={() => alert('Feature currently unavailable')}>Forgot Password?</p>
+          <p onClick={() => alert("Feature currently unavailable")}>
+            Forgot Password?
+          </p>
           <div className="flex items-center justify-center gap-2 mt-5">
             <div className="h-[2px] w-full bg-gray-200"></div>{" "}
             <p className="text-xl">or</p>{" "}

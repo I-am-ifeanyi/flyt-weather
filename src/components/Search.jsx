@@ -1,13 +1,8 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
-import { useQuery } from "react-query";
-import { myContextApi } from "../StateManagement";
+import React, { useState} from "react";
 
 import { AsyncPaginate } from "react-select-async-paginate";
 
 const Search = ({ onSearchChange }) => {
-  const { setLongitude, setLatitude, cityName, setCityName } =
-    useContext(myContextApi);
   const [search, setSearch] = useState(null);
 
   const geoOptions = {
@@ -37,7 +32,6 @@ const Search = ({ onSearchChange }) => {
       .catch((err) => console.error(err));
   };
 
-  console.log(cityName);
 
   const handleOnChange = (searchData) => {
     setSearch(searchData);

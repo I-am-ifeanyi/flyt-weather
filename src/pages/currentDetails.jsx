@@ -1,6 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
 import { myContextApi } from "../StateManagement";
-import { useParams } from "react-router-dom";
 
 import Footer from "../components/Footer";
 
@@ -11,7 +10,6 @@ import wallpaper from "/wallpaper2.png";
 
 const currentDetails = () => {
   const navigate = useNavigate();
-    const { details } = useParams();
 
   const [timeFrame, setTimeFrame] = useState({
     isToday: true,
@@ -19,23 +17,7 @@ const currentDetails = () => {
     isDaily: false,
   });
   const { isToday, isHourly, isDaily } = timeFrame;
-  const [isWeatherCurrent, setIsWeatherCurrent] = useState(true)
-    const {
-    createUser,
-    setLongitude,
-    setLatitude,
-    setCityName,
-    cityName,
-    currentWeatherData,
-    threeHourlyWeatherData,
-  } = useContext(myContextApi);
-
- 
-
- 
-
-
-
+  const { cityName, currentWeatherData } = useContext(myContextApi);
 
   const toggleToday = () => {
     setTimeFrame({
@@ -44,12 +26,14 @@ const currentDetails = () => {
       isDaily: false,
     });
   };
+
   const toggleHourly = () => {
     setTimeFrame({
       isToday: false,
       isHourly: true,
       isDaily: false,
     });
+    alert("Feature Unavailable yet. Please try again later.");
   };
   const toggleDaily = () => {
     setTimeFrame({
@@ -57,6 +41,7 @@ const currentDetails = () => {
       isHourly: false,
       isDaily: true,
     });
+    alert("Feature Unavailable yet. Please try again later.");
   };
 
   const date = new Date();

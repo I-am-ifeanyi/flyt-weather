@@ -13,6 +13,14 @@ const SignUp = () => {
 
   const { name, email, password } = createUser;
 
+   const formHandler = (e) => {
+     const { name, value } = e.target;
+     setCreateUser((prevState) => ({
+       ...prevState,
+       [name]: value,
+     }));
+   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password.length < 8) {
@@ -25,7 +33,6 @@ const SignUp = () => {
         });
       }, 3000);
     } else setIsPasswordCorrect(true);
-    console.log(createUser);
     setIsFormSubmitted(true);
     localStorage.setItem("user", JSON.stringify(createUser));
 
@@ -34,18 +41,13 @@ const SignUp = () => {
     return;
   };
 
-  const formHandler = (e) => {
-    setCreateUser(() => {
-      return {
-        ...createUser,
-        [e.target.name]: e.target.value,
-      };
-    });
-  };
 
-   useEffect(() => {
-     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-   }, []);
+
+ 
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, []);
 
   return (
     <div className="bg-[#622FB5] h-full p-6 text-gray-200">

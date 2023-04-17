@@ -13,6 +13,7 @@ const StateManagement = ({ children }) => {
   const [latitude, setLatitude] = useState("9.0765");
   const [longitude, setLongitude] = useState("7.3986");
   const [cityName, setCityName] = useState("Abuja");
+  const threeWeather = [];
 
   const API_KEY = "f482a7693b6fac0ceb294029548fbf0b";
   const weatherURL = "https://api.openweathermap.org/data/2.5";
@@ -28,20 +29,22 @@ const StateManagement = ({ children }) => {
     ).then((res) => res.json())
   );
 
-  const { isLoading: isThreeHourlyLoading, data: threeHourlyWeatherData } =
-    useQuery(
-      ["three-hourly-weather", latitude, longitude],
-      () =>
-        fetch(
-          `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
-        ).then((res) => res.json()),
-      {
-        dependencies: [latitude, longitude],
-      }
-    );
+  const {
+    isLoading: isThreeHourlyLoading,
+    data: threeHourlyWeatherData,
+    isError: isThreeWeatherError,
+    error: threeWeatherError,
+  } = useQuery(["three-hourly-weather", latitude, longitude], () =>
+    fetch(
+      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+    ).then((res) => res.json())
+  );
 
-  console.log(currentWeatherData);
-  console.log(threeHourlyWeatherData);
+  threeWeather.push(threeHourlyWeatherData?.list);
+  const storedObj = JSON.parse(localStorage.getItem("user"));
+
+  const userName = storedObj.name;
+
 
   return (
     <myContextApi.Provider
@@ -55,6 +58,10 @@ const StateManagement = ({ children }) => {
         currentWeatherData,
         threeHourlyWeatherData,
         isCurrentWeatherLoading,
+        threeWeather,
+        isThreeWeatherError,
+        threeWeatherError,
+        userName,
       }}
     >
       {children}

@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import icon1 from "../images/intro--icons/icon1.png";
@@ -8,10 +8,9 @@ import icon4 from "../images/intro--icons/icon4.png";
 import cloud from "../images/intro--icons/cloud.png";
 import { myContextApi } from "../StateManagement";
 
-
 const Intro = () => {
-    const navigate = useNavigate()
-    const {} = useContext(myContextApi)
+  const navigate = useNavigate();
+  const {} = useContext(myContextApi);
 
   return (
     <div className="bg-[#622FB5] h-full p-6 md:w-1/2 md:m-auto">
@@ -43,7 +42,10 @@ const Intro = () => {
         <p className="text-lg">
           Check live weather updates all over the world with just one tap
         </p>
-        <button className="bg-[#7F4CD2] p-2 rounded-xl text-2xl font-bold hover:bg-[#351b5d] shadow-lg mt-4" onClick={() => navigate('/login')}>
+        <button
+          className="bg-[#7F4CD2] p-2 rounded-xl text-2xl font-bold hover:bg-[#351b5d] shadow-lg mt-4"
+          onClick={() => navigate("/login")}
+        >
           Get Started
         </button>
       </div>
