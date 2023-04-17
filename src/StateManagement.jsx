@@ -15,8 +15,9 @@ const StateManagement = ({ children }) => {
   const [cityName, setCityName] = useState("Abuja");
   const threeWeather = [];
 
-  const API_KEY = "f482a7693b6fac0ceb294029548fbf0b";
   const weatherURL = "https://api.openweathermap.org/data/2.5";
+  const apiKey = import.meta.env.VITE_API_KEY_ONE;
+
 
   const {
     isLoading: isCurrentWeatherLoading,
@@ -25,7 +26,7 @@ const StateManagement = ({ children }) => {
     error: currrentWeatherError,
   } = useQuery(["current-weather", latitude, longitude], () =>
     fetch(
-      `${weatherURL}/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+      `${weatherURL}/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
     ).then((res) => res.json())
   );
 
@@ -36,15 +37,16 @@ const StateManagement = ({ children }) => {
     error: threeWeatherError,
   } = useQuery(["three-hourly-weather", latitude, longitude], () =>
     fetch(
-      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`
+      `${weatherURL}/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`
     ).then((res) => res.json())
   );
 
   threeWeather.push(threeHourlyWeatherData?.list);
   const storedObj = JSON.parse(localStorage.getItem("user"));
 
-  const userName = storedObj.name;
-
+  const userName = storedObj.name ? storedObj.name : null;
+  const email = storedObj.email ? storedObj.email : null;
+  const password = storedObj.password ? storedObj.password : null;
 
   return (
     <myContextApi.Provider
@@ -62,6 +64,8 @@ const StateManagement = ({ children }) => {
         isThreeWeatherError,
         threeWeatherError,
         userName,
+        email,
+        password,
       }}
     >
       {children}

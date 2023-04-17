@@ -5,10 +5,13 @@ import { AsyncPaginate } from "react-select-async-paginate";
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
+    const apiKey = import.meta.env.VITE_API_KEY_TWO;
+
+
   const geoOptions = {
     method: "GET",
     headers: {
-      "X-RapidAPI-Key": "5e3037cc9amsha2a12b21aae7181p16d9bajsn7173051fbda5",
+      "X-RapidAPI-Key": apiKey,
       "X-RapidAPI-Host": "wft-geo-db.p.rapidapi.com",
     },
   };

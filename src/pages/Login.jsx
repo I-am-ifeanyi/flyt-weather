@@ -13,7 +13,7 @@ import { BsArrowRight } from "react-icons/bs";
 import cloud from "../images/intro--icons/cloud.png";
 
 const Login = () => {
-  const { createUser } = useContext(myContextApi);
+  const { email, password } = useContext(myContextApi);
   const [showPassword, setShowPassword] = useState(false);
   const [isAccountfound, setIsAccountFound] = useState(true);
   const toggleShowPassword = () => {
@@ -25,7 +25,6 @@ const Login = () => {
     loginPassword: "",
   });
   const { loginEmail, loginPassword } = loginDetails;
-  const { email, password } = createUser;
 
   const handleSubmit = (e) => {
     e.preventDefault();

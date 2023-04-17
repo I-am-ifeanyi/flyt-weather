@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import CurrentDetails from "./pages/currentDetails";
 import ThreeHourlyDetails from "./pages/ThreeHourlyDetails";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import ProtectedRoute2 from "./pages/ProtectedRoute2";
 
 function App() {
   return (
@@ -24,7 +25,15 @@ function App() {
         }
       />
 
-      <Route path="/current-weather-details" element={<CurrentDetails />} />
+      <Route
+        path="/current-weather-details"
+        element={
+          <ProtectedRoute2>
+            {" "}
+            <CurrentDetails />{" "}
+          </ProtectedRoute2>
+        }
+      />
       <Route
         path="/home/:threeHourlyDetails"
         element={<ThreeHourlyDetails />}

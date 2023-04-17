@@ -9,7 +9,6 @@ import place2 from "../images/home--images/place2.svg";
 
 const Home = () => {
   const {
-    createUser,
     setLongitude,
     setLatitude,
     setCityName,
@@ -107,7 +106,7 @@ const Home = () => {
               ?.map((data) => {
                 return (
                   <div className="w-1/4 rounded-lg flex-shrink-0" key={data.dt}>
-                    <Link to={`${data.dt}`}>
+                    <Link to={`/home/${data.dt}`}>
                       <figure className=" bg-[#622FB5]  p-4  border flex flex-col items-center justify-center w-full rounded-lg">
                         <img
                           src={`${data?.weather[0]?.icon}.png`}
