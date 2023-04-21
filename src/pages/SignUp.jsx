@@ -50,91 +50,92 @@ const SignUp = () => {
   }, []);
 
   return (
-    <div className="bg-[#622FB5] h-full p-6 text-gray-200">
-      <h1
-        className={`text-4xl font-bold ${
-          isFormSubmitted ? "text-center" : "null"
-        }`}
-      >
-        {!isFormSubmitted ? "Sign Up" : "You are Signed Up"}
-      </h1>
-      <p
-        className={`${isFormSubmitted ? "text-center" : "null"} text-lg ${
-          isFormSubmitted ? "w-full" : "w-3/4"
-        } mt-2`}
-      >
-        {!isFormSubmitted ? (
-          "Enter a few details to sign up to Flyt Weather App"
-        ) : (
-          <span className="text-2xl font-bold">
-            Account created successfully
-          </span>
-        )}
-      </p>
-      {!isFormSubmitted && (
-        <form
-          className="flex flex-col gap-5 mt-5 w-full items-center"
-          onSubmit={handleSubmit}
+    <div className="w-full h-screen md:flex items-center justify-center">
+      <div className="bg-[#622FB5] text-gray-200 h-screen md:h-[90vh] p-6 md:w-1/2 md:m-auto md:rounded-lg">
+        <h1
+          className={`text-4xl font-bold mt-10 md:mt-2 md:text-center ${
+            isFormSubmitted ? "text-center" : "null"
+          }`}
         >
-          <label className="text-lg font-bold flex flex-col gap-2 w-full">
-            Name:
-            <input
-              type="text"
-              placeholder="First Name"
-              required
-              className="p-2 w-full text-gray-800 rounded-lg"
-              value={name}
-              name="name"
-              onChange={formHandler}
-            />
-            {!isNameCorrect && (
-              <p className="text-[12px] text-red-400">
-                Name must be longer than 8 characters
-              </p>
-            )}
-          </label>
-          <label className="text-lg font-bold flex flex-col gap-2 w-full">
-            Email:
-            <input
-              type="email"
-              placeholder="Email"
-              required
-              className="p-2 w-full text-gray-800 rounded-lg"
-              value={email}
-              name="email"
-              onChange={formHandler}
-            />
-          </label>
-          <label className="text-lg font-bold flex flex-col gap-2 w-full">
-            Password:
-            <input
-              type="password"
-              placeholder="Password"
-              required
-              className="p-2 w-full text-gray-800 rounded-lg"
-              value={password}
-              name="password"
-              onChange={formHandler}
-            />
-            {!isPasswordCorrect && (
-              <p className="text-[12px] text-red-400">
-                Password must be longer than 8 characters
-              </p>
-            )}{" "}
-          </label>
-          <button className="bg-gray-200 text-[#622FB5] w-full mt-4 py-2 rounded-md font-bold text-xl">
-            Submit
-          </button>
-        </form>
-      )}
-      <p
-        onClick={() => navigate("/login")}
-        className={`mt-5 text-center ${isFormSubmitted ? "hidden" : null}`}
-      >
-        Already have an account?
-      </p>
-      <div className="">
-        <img src={cloud} className="w-full -rotate-12 mt-10" />
+          {!isFormSubmitted ? "Sign Up" : "You are Signed Up"}
+        </h1>
+        <p
+          className={`${isFormSubmitted ? "text-center" : "null"} text-lg ${
+            isFormSubmitted ? "w-full" : "w-3/4"
+          } mt-3 md:w-2/3 md:m-auto`}
+        >
+          {!isFormSubmitted ? (
+            "Enter a few details to sign up to Flyt Weather App"
+          ) : (
+            <span className="text-2xl font-bold">
+              Account created successfully
+            </span>
+          )}
+        </p>
+        {!isFormSubmitted && (
+          <form
+            className="flex flex-col gap-4 mt-5 md:w-2/3 m-auto"
+            onSubmit={handleSubmit}
+          >
+            <label className="text-lg font-bold flex flex-col gap-2 w-full">
+              Name:
+              <input
+                type="text"
+                placeholder="First Name"
+                required
+                className="p-2 w-full text-gray-800 rounded-lg"
+                value={name}
+                name="name"
+                onChange={formHandler}
+              />
+              {!isNameCorrect && (
+                <p className="text-[12px] text-red-400">
+                  Name must be longer than 8 characters
+                </p>
+              )}
+            </label>
+            <label className="text-lg font-bold flex flex-col gap-2 w-full">
+              Email:
+              <input
+                type="email"
+                placeholder="Email"
+                required
+                className="p-2 w-full text-gray-800 rounded-lg"
+                value={email}
+                name="email"
+                onChange={formHandler}
+              />
+            </label>
+            <label className="text-lg font-bold flex flex-col gap-2 w-full">
+              Password:
+              <input
+                type="password"
+                placeholder="Password"
+                required
+                className="p-2 w-full text-gray-800 rounded-lg"
+                value={password}
+                name="password"
+                onChange={formHandler}
+              />
+              {!isPasswordCorrect && (
+                <p className="text-[12px] text-red-400">
+                  Password must not be less than 8 characters
+                </p>
+              )}{" "}
+            </label>
+            <button className="bg-gray-200 text-[#622FB5] w-full mt-4 py-2 rounded-md font-bold text-xl">
+              Submit
+            </button>
+          </form>
+        )}
+        <p
+          onClick={() => navigate("/login")}
+          className={`mt-5 text-center ${
+            isFormSubmitted ? "hidden" : null
+          } cursor-pointer`}
+        >
+          Already have an account?
+        </p>
       </div>
     </div>
   );

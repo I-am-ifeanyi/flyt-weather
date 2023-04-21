@@ -50,20 +50,20 @@ const Home = () => {
     <h1>Data is not available</h1>
   }
     return (
-      <>
-        <div className="bg-[#431098] h-screen text-gray-200 overflow-y-hidden">
+      <div className="w-full h-screen md:flex flex-col items-center justify-center">
+        <div className="bg-[#431098] text-gray-200 h-screen md:w-1/2 md:m-auto md:rounded-lg">
           <div
             className="w-full h-[300px] bg-[url(wallpaper.png)] rounded-b-3xl p-5 "
             style={style}
           >
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center md:mt-5">
               <h1 className="text-xl font-semibold">Hi, {userName}</h1>
               <div className="w-2/3">
                 <Search onSearchChange={handleOnSearchChange} />
               </div>
             </div>
             <Link to="/current-weather-details">
-              <div className="flex justify-between mt-28 gap-5">
+              <div className="flex justify-between mt-28 md:mt-20 gap-5">
                 <div className="w-2/3">
                   <h1 className="text-2xl font-bold">{cityName}</h1>
                   <p className="text-xs">{date.toLocaleDateString()}</p>
@@ -98,21 +98,29 @@ const Home = () => {
               </div>
             </Link>
           </div>
-          <div className="flex gap-6 justify-center p-5">
+          <div className="flex gap-6 justify-center p-5 md:-mt-16">
             <figure>
-              <img src={place1} alt="" className="rounded-xl shadow-lg" />
-              <figcaption className="relative -mt-52 p-2 font-bold text-center z-50">
+              <img
+                src={place1}
+                alt=""
+                className="rounded-xl shadow-lg md:w-[150px] md:h-[150px]"
+              />
+              <figcaption className="relative -mt-52 md:-mt-36 p-2 font-bold text-center z-50">
                 Onitsha 24&#176;C
               </figcaption>
             </figure>
-            <figure>
-              <img src={place2} alt="" className="rounded-xl shadow-lg" />
-              <figcaption className="relative -mt-52 p-2 font-bold text-center z-50">
+            <figure className="md:w-[150px] md:h-[150px]">
+              <img
+                src={place2}
+                alt=""
+                className="rounded-xl shadow-lg md:w-full md:h-full"
+              />
+              <figcaption className="relative -mt-52 md:-mt-36 p-2 font-bold text-center z-50">
                 Awka 24&#176;C
               </figcaption>
             </figure>
           </div>
-          <div className="relative top-36 p-5">
+          <div className="relative top-36 md:-top-5 p-5">
             <h1 className="font-bold text-lg">Three Hourly Weather Data</h1>
             <div className="flex gap-2 justify-around mt-2 overflow-x-scroll pb-2 px-3">
               {threeWeather[0]
@@ -147,8 +155,10 @@ const Home = () => {
             </div>
           </div>
         </div>
-        <Footer />
-      </>
+        <div className="md:hidden">
+          <Footer />
+        </div>
+      </div>
     );
 };
 
