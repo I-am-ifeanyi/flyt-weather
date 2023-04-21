@@ -44,9 +44,14 @@ const StateManagement = ({ children }) => {
   threeWeather.push(threeHourlyWeatherData?.list);
   const storedObj = JSON.parse(localStorage.getItem("user"));
 
-  const userName = storedObj.name ? storedObj.name : null;
-  const email = storedObj.email ? storedObj.email : null;
-  const password = storedObj.password ? storedObj.password : null;
+  let userName;
+  let email;
+  let password;
+  if (storedObj) {
+    userName = storedObj.name;
+    email = storedObj.email;
+    password = storedObj.password;
+}
 
   return (
     <myContextApi.Provider

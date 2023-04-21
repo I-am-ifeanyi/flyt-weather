@@ -35,10 +35,6 @@ const Home = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
 
-  if (isThreeWeatherError) {
-    console.log(threeWeatherError);
-  }
-
   const style = {
     backgroundImage: `url(wallpaper.png)`,
     backgroundSize: "cover",

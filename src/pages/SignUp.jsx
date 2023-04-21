@@ -80,7 +80,7 @@ const SignUp = () => {
             Name:
             <input
               type="text"
-              placeholder="Your first name & surname"
+              placeholder="First Name"
               required
               className="p-2 w-full text-gray-800 rounded-lg"
               value={name}
@@ -97,7 +97,7 @@ const SignUp = () => {
             Email:
             <input
               type="email"
-              placeholder="Your Email"
+              placeholder="Email"
               required
               className="p-2 w-full text-gray-800 rounded-lg"
               value={email}

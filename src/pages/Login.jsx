@@ -71,7 +71,7 @@ const Login = () => {
           <label>
             <input
               type="email"
-              placeholder="Your Email"
+              placeholder="Email"
               className="w-full p-3 text-[16px] text-gray-800 rounded-md"
               name="loginEmail"
               onChange={formHandler}
@@ -82,7 +82,7 @@ const Login = () => {
           <label>
             <input
               type={`${showPassword ? "text" : "password"}`}
-              placeholder="Your Password"
+              placeholder="Password"
               className="w-full p-3 text-[16px] text-gray-800 rounded-md"
               name="loginPassword"
               onChange={formHandler}

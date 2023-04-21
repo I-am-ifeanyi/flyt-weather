@@ -23,7 +23,6 @@ const ThreeHourlyDetails = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, []);
-  console.log(threeWeather);
   return (
     <div className="bg-[#431098] h-screen text-gray-200">
       {threeWeather[0]
