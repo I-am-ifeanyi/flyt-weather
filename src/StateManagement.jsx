@@ -16,7 +16,7 @@ const StateManagement = ({ children }) => {
   const threeWeather = [];
 
   const weatherURL = "https://api.openweathermap.org/data/2.5";
-  const apiKey = import.meta.env.VITE_API_KEY_ONE;
+  const apiKey = "f482a7693b6fac0ceb294029548fbf0b";
 
 
   const {

@@ -5,7 +5,7 @@ import { AsyncPaginate } from "react-select-async-paginate";
 const Search = ({ onSearchChange }) => {
   const [search, setSearch] = useState(null);
 
-    const apiKey = import.meta.env.VITE_API_KEY_TWO;
+    const apiKey = "5e3037cc9amsha2a12b21aae7181p16d9bajsn7173051fbda5";
 
 
   const geoOptions = {
