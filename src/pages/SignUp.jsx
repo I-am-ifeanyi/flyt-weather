@@ -2,16 +2,25 @@ import React, { useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { myContextApi } from "../StateManagement";
 
-import cloud from "../images/intro--icons/cloud.png";
-
+import {
+  AiOutlineEyeInvisible,
+  AiOutlineEye,
+  AiFillApple,
+} from "react-icons/ai";
 const SignUp = () => {
   const { createUser, setCreateUser } = useContext(myContextApi);
   const navigate = useNavigate();
   const [isPasswordCorrect, setIsPasswordCorrect] = useState(true);
   const [isNameCorrect, setIsNameCorrect] = useState(true);
   const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+    const [showPassword, setShowPassword] = useState(false);
+
 
   const { name, email, password } = createUser;
+
+  const toggleShowPassword = () => {
+    setShowPassword((prev) => !prev);
+  };
 
    const formHandler = (e) => {
      const { name, value } = e.target;
@@ -34,6 +43,11 @@ const SignUp = () => {
       }, 3000);
     } else setIsPasswordCorrect(true);
     setIsFormSubmitted(true);
+    setCreateUser({
+      name: "",
+      email: "",
+      password: "",
+    });
     localStorage.setItem("user", JSON.stringify(createUser));
 
     navigate("/login");
@@ -106,22 +120,35 @@ const SignUp = () => {
                 onChange={formHandler}
               />
             </label>
-            <label className="text-lg font-bold flex flex-col gap-2 w-full">
+            <label>
               Password:
               <input
-                type="password"
+                type={`${showPassword ? "text" : "password"}`}
                 placeholder="Password"
-                required
                 className="p-2 w-full text-gray-800 rounded-lg"
-                value={password}
                 name="password"
                 onChange={formHandler}
+                value={password}
+                required
               />
+              {showPassword ? (
+                <AiOutlineEye
+                  className="float-right mr-5 text-gray-800 -mt-8 z-50 relative                "
+                  size={20}
+                  onClick={toggleShowPassword}
+                />
+              ) : (
+                <AiOutlineEyeInvisible
+                  className="float-right mr-5 text-gray-800 -mt-8 z-50 relative                "
+                  size={20}
+                  onClick={toggleShowPassword}
+                />
+              )}
               {!isPasswordCorrect && (
                 <p className="text-[12px] text-red-400">
                   Password must not be less than 8 characters
                 </p>
-              )}{" "}
+              )}
             </label>
             <button className="bg-gray-200 text-[#622FB5] w-full mt-4 py-2 rounded-md font-bold text-xl">
               Submit
