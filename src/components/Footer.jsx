@@ -8,8 +8,8 @@ import settings from "../images/home--images/footer-icons/Setting_alt_line.png";
 
 const Footer = () => {
   return (
-    <div
-      className=" bg-[#7F4CD2] p-2"
+    <footer
+      className=" bg-[#7F4CD2] p-2 absolute w-full bottom-0"
     >
       <div className="flex justify-around items-center ">
         <Link to="/home"><img src={home} alt="" /></Link>
@@ -17,7 +17,7 @@ const Footer = () => {
         <img src={compass} alt="" />
         <img src={settings} alt="" />
       </div>
-    </div>
+    </footer>
   );
 };
 

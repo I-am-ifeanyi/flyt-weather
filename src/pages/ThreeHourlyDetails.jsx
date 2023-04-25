@@ -152,7 +152,7 @@ const ThreeHourlyDetails = () => {
             );
           })}
 
-        <div className="relative top-[450px] md:hidden">
+        <div className="md:hidden">
           {threeWeather[0] && <Footer />}
         </div>
       </div>

@@ -204,7 +204,7 @@ const currentDetails = () => {
             </div>
           </div>
         </div>
-        <div className="relative top-[450px] md:hidden">
+        <div className="md:hidden">
           <Footer />
         </div>
       </div>
